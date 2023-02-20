@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="description" content="A fun little puzzle, Maze-Game" />
+    <title>Maze-Game</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+    />
+    <link rel="shortcut icon" href="images/logo.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      Sorry, it will be available on touch devices soon.
+    </div>
+    <header>
+      <div class="new-game">
+        <i class="fa-solid fa-play"></i>
+        <p>New Game</p>
+      </div>
+      <div class="level">
+        <label for="level">Level</label>
+        <input
+          type="number"
+          name="level"
+          id="level"
+          min="10"
+          max="30"
+          value="14"
+        />
+      </div>
+      <div class="color">
+        <label for="color">Bg-Color</label>
+        <input type="color" name="color" value="#ffffff" />
+      </div>
+      <div class="gravity">
+        <label for="gravity">Gravity</label>
+        <select name="gravity" id="">
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+      </div>
+    </header>
+    <main>
+      <!-- Matter js will attach the canvas here -->
+      <div class="winner hidden">
+        <h1>You Win!</h1>
+      </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.18.0/matter.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
