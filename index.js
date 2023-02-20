@@ -15,7 +15,8 @@ const { Engine, Render, Runner, World, Bodies, Body, Events, Composite } =
   Matter;
 
 const width = window.innerWidth;
-const height = window.innerHeight - document.querySelector("main").offsetTop - 20;
+const height =
+  window.innerHeight - document.querySelector("main").offsetTop - 20;
 
 // Dimension of the grid
 let rows = 14;
@@ -246,27 +247,28 @@ function mazeGame(cellsHorizontal = 14, cellsVertical = 12) {
   // Handling KeyPresses to move the ball
   window.addEventListener("keydown", (e) => {
     const keyPressed = e.key.toLowerCase();
+    console.log(keyPressed);
     // Get currrent ball velocity
     const { x, y } = ball.velocity;
-    if (keyPressed === "w") {
+    if (keyPressed === "w" || keyPressed === "arrowup") {
       Body.setVelocity(ball, {
         x,
         y: y - 3,
       });
     }
-    if (keyPressed === "d") {
+    if (keyPressed === "d" || keyPressed === "arrowright") {
       Body.setVelocity(ball, {
         x: x + 3,
         y,
       });
     }
-    if (keyPressed === "s") {
+    if (keyPressed === "s" || keyPressed === "arrowdown") {
       Body.setVelocity(ball, {
         x,
         y: y + 3,
       });
     }
-    if (keyPressed === "a") {
+    if (keyPressed === "a" || keyPressed === "arrowleft") {
       Body.setVelocity(ball, {
         x: x - 3,
         y: y,
