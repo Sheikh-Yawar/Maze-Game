@@ -71,7 +71,7 @@ function delGame() {
 }
 
 // Creating mazeGame
-function mazeGame(cellsHorizontal = 14, cellsVertical = 12) {
+function mazeGame(cellsHorizontal, cellsVertical) {
   const walls = [
     Bodies.rectangle(width / 2, 0, width, wallWidth, {
       render: {
@@ -300,14 +300,22 @@ mazeGame(rows, columns);
 // New Game
 newGame.addEventListener("click", () => {
   delGame();
-  mazeGame();
+  engine.world.gravity.y = 0;
+  rows = parseInt(level.querySelector("input").value);
+  columns = rows - 2;
+  console.log(rows, columns);
+  gravity.querySelector("select").value = 0;
+  mazeGame(rows, columns);
 });
 
 // Change level
 level.addEventListener("input", (e) => {
   delGame();
-  const rows = parseInt(e.target.value);
-  const columns = rows - 2;
+  rows = parseInt(e.target.value);
+  columns = rows - 2;
+  // Disable Gravity
+  engine.world.gravity.y = 0;
+  gravity.querySelector("select").value = 0;
   mazeGame(rows, columns);
 });
 
